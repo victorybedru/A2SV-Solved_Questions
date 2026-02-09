@@ -1,0 +1,9 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+        store= {}
+        for i, val in enumerate(nums):
+            dc= target- val
+            if dc in store:
+                return[i, store[dc]]
+            store[val]= i
+        
