@@ -1,0 +1,11 @@
+class Solution(object):
+    def findValidPair(self, s):
+        freq={}
+        for ch in s:
+            freq[ch]= freq.get(ch, 0)+1
+        for i in range(len(s)-1):
+            if freq[s[i]]==int(s[i]) and freq[s[i+1]]== int(s[i+1]) and s[i]!= s[i+1]:
+                return s[i]+s[i+1]
+        return ""
+
+        
