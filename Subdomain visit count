@@ -1,0 +1,12 @@
+class Solution:
+    def subdomainVisits(self, cpdomains):
+        count = {}
+        for cpdomain in cpdomains:
+            num, domain = cpdomain.split(" ")
+            visitNum = int(num)
+            part = domain.split(".")
+            for i in range(len(part)):
+                subdomain = ".".join(part[i:])
+                count[subdomain] = count.get(subdomain, 0) + visitNum
+        
+        return ["{} {}".format(visit, dom) for dom, visit in count.items()]
