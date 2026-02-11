@@ -1,0 +1,16 @@
+class Solution(object):
+    def findRestaurant(self, list1, list2):
+        dict1={val:i for i, val in enumerate(list1)}
+        minInd= float('inf')
+        res=[]
+        for j, val in enumerate(list2):
+            if val in dict1:
+                sumIndex= j + dict1[val]
+                if sumIndex<minInd:
+                    minInd= sumIndex
+                    res=[val]
+                elif sumIndex== minInd:
+                    res.append(val)
+        return res
+
+        
