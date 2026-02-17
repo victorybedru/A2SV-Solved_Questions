@@ -1,0 +1,26 @@
+class Solution:
+    def minimumIndex(self, nums):
+        count = 0
+        candidate = None
+        
+        for num in nums:
+            if count == 0:
+                candidate = num
+            count += 1 if num == candidate else -1
+        
+        total = nums.count(candidate)
+        left_count = 0
+        n = len(nums)
+        
+        for i in range(n - 1):
+            if nums[i] == candidate:
+                left_count += 1
+            
+            left_length = i + 1
+            right_length = n - left_length
+            
+            if (left_count * 2 > left_length and
+                (total - left_count) * 2 > right_length):
+                return i
+        
+        return -1
