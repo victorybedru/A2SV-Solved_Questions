@@ -1,0 +1,13 @@
+class Solution:
+    def pancakeSort(self, arr: List[int]) -> List[int]:
+        res=[]
+        for sz in range(len(arr),1,-1):
+            maxInd= arr.index(max(arr[:sz]))
+            if maxInd != sz-1:
+                if maxInd!=0:
+                    arr[:maxInd+1]= arr[:maxInd+1][::-1]
+                    res.append(maxInd+1)
+                arr[:sz]= arr[:sz][::-1]
+                res.append(sz)
+        return res
+
