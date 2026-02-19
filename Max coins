@@ -1,0 +1,8 @@
+class Solution(object):
+    def maxCoins(self, piles):
+        piles.sort()
+        sz=len(piles)
+        summation=0
+        for i in range(sz/3):
+            summation+= piles[-2* (i+1)]
+        return summation
