@@ -1,11 +1,12 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        prevMap= {}
-        for i , val in enumerate(nums):
-            diff= target - val
-            if diff in prevMap:
-                return(prevMap[diff], i)
+        freq= {}
+        for i in range(len(nums)):
+            diff= target- nums[i]
+            if diff in freq:
+                return [i, freq[diff]]
+            freq[nums[i]]= i
 
-            prevMap[val]= i
+        
 
         
